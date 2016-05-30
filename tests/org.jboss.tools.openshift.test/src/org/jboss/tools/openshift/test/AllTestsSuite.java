@@ -11,6 +11,7 @@
 package org.jboss.tools.openshift.test;
 
 import org.jboss.tools.openshift.core.preferences.OpenShiftCorePreferences;
+import org.jboss.tools.openshift.internal.ui.wizard.deployimage.PortSpecAdapterTest;
 import org.jboss.tools.openshift.test.common.core.connection.ConnectionsFactoryTest;
 import org.jboss.tools.openshift.test.common.core.util.StringUtilsTest;
 import org.jboss.tools.openshift.test.common.core.util.URIUtilsTest;
@@ -47,7 +48,6 @@ import org.jboss.tools.openshift.test.ui.validator.LabelKeyValidatorTest;
 import org.jboss.tools.openshift.test.ui.validator.LabelValueValidatorTest;
 import org.jboss.tools.openshift.test.ui.validator.PodPortValidatorTest;
 import org.jboss.tools.openshift.test.ui.validator.ProjectNameValidatorTest;
-import org.jboss.tools.openshift.test.ui.wizard.deployimage.PortSpecAdapterTest;
 import org.jboss.tools.openshift.test.ui.wizard.newapp.NewApplicationWizardModelTest;
 import org.jboss.tools.openshift.test.ui.wizard.newapp.TemplateParameterViewerUtilsTest;
 import org.junit.runner.RunWith;

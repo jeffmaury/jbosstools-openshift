@@ -8,7 +8,7 @@
  * Contributors:
  *     Red Hat, Inc. - initial API and implementation
  ******************************************************************************/
-package org.jboss.tools.openshift.test.ui.wizard.deployimage;
+package org.jboss.tools.openshift.internal.ui.wizard.deployimage;
 
 import org.jboss.tools.openshift.internal.ui.wizard.deployimage.DockerImage2OpenshiftResourceConverter;
 import org.junit.Test;
