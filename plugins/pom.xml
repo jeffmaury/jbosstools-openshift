@@ -23,5 +23,7 @@
 		<module>org.jboss.tools.openshift.ui</module>
 		<module>org.jboss.tools.openshift.cdk.server</module>
 		<module>org.jboss.tools.openshift.js</module>
+		<module>org.jboss.tools.openshift.osio.core</module>
+		<module>org.jboss.tools.openshift.osio.ui</module>
 	</modules>
 </project>
