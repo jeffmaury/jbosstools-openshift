@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: org.jboss.tools.openshift.osio.ui;singleton:=true
+Bundle-Version: 3.4.1.qualifier
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.jboss.tools.openshift.osio.core,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.core.commands,
+ org.apache.httpcomponents.httpclient;bundle-version="4.3.6",
+ org.apache.httpcomponents.httpcore;bundle-version="4.3.3",
+ minimal-json;bundle-version="0.9.4"
