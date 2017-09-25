@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+>
+   <extension-point id="org.jboss.tools.openshift.io.core.tokenProvider" name="TokenProvider" schema="schema/org.jboss.tools.openshift.io.core.tokenProvider.exsd"/>
+</plugin>
