@@ -1,28 +1,33 @@
 package org.jboss.tools.openshift.io.internal.ui.processor;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import org.jboss.tools.openshift.io.core.LoginInfo;
+import org.eclipse.swt.browser.Browser;
+import org.jboss.tools.openshift.io.core.LoginResponse;
 import org.jboss.tools.openshift.io.core.OSIOCoreConstants;
-import org.jboss.tools.openshift.io.core.OSIOUtils;
 
 public class DefaultRequestProcessor implements RequestProcessor {
 
-	private static final Charset UTF_8 = Charset.forName("UTF-8");
-	
 	@Override
-	public LoginInfo getRequestInfo(String url, String content) {
-		LoginInfo info = null;
+	public LoginResponse getRequestInfo(Browser browser, String url, String content) {
+		LoginResponse response = null;
 		try {
 			if (url.startsWith(OSIOCoreConstants.DEVSTUDIO_OSIO_LANDING_PAGE)) {
-				String json = OSIOUtils.getTokenJSON(content);
-				return OSIOUtils.decodeLoginInfo(json);
+				String accessToken = (String) browser.evaluate("return localStorage.getItem(\"auth_token\");");
+				String refreshToken = (String) browser.evaluate("return localStorage.getItem(\"refresh_token\");");
+				response = new LoginResponse();
+				response.setAccessToken(accessToken);
+				response.setRefreshToken(refreshToken);
+			} else if (url.equals("https://openshift.io/")) {
+				String accessToken = (String) browser.evaluate("return localStorage.getItem(\"auth_token\");");
+				String refreshToken = (String) browser.evaluate("return localStorage.getItem(\"refresh_token\");");
+				response = new LoginResponse();
+				response.setAccessToken(accessToken);
+				response.setRefreshToken(refreshToken);
 			}
 		}
-		catch (IOException | RuntimeException e) {
+		catch (RuntimeException e) {
 			e.printStackTrace();
 		}
-		return info;
+		return response;
 	}
 
 }

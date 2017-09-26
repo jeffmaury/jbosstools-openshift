@@ -1,6 +1,7 @@
 package org.jboss.tools.openshift.io.core;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.NoSuchElementException;
 
 import org.jsoup.Jsoup;
@@ -22,15 +23,24 @@ public class OSIOUtils {
 	 * @return the decoded object.
 	 * @throws IOException if error occurs
 	 */
-	public static LoginInfo decodeLoginInfo(String jsonString) throws IOException {
-		return mapper.readValue(jsonString, LoginInfo.class);
-		
+	public static LoginResponse decodeLoginInfo(String jsonString) throws IOException {
+		return mapper.readValue(jsonString, LoginResponse.class);
+	}
+	
+	public static RefreshResponse decodeRefreshResponse(String response) throws IOException {
+		return mapper.readValue(response, RefreshResponse.class);
 	}
 	
 	public static String decodeEmailFromToken(String token) {
 		String payloads[] = token.split("\\.");
 		Claims claims = (Claims) Jwts.parser().parse(payloads[0] + '.' + payloads[1] + '.').getBody();
 		return (String) claims.get("email");
+	}
+
+	public static long decodeExpiryFromToken(String token) {
+		String payloads[] = token.split("\\.");
+		Claims claims = (Claims) Jwts.parser().parse(payloads[0] + '.' + payloads[1] + '.').getBody();
+		return  claims.get("exp", Date.class).getTime();
 	}
 
 	public static String getTokenJSON(String content) {
@@ -42,4 +52,5 @@ public class OSIOUtils {
 			throw new NoSuchElementException();
 		}
 	}
+
 }

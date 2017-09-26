@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
-import org.jboss.tools.openshift.io.core.LoginInfo;
+import org.jboss.tools.openshift.io.core.LoginResponse;
 import org.jboss.tools.openshift.io.internal.ui.processor.DefaultRequestProcessor;
 import org.jboss.tools.openshift.io.internal.ui.processor.RequestProcessor;
 
@@ -22,7 +22,7 @@ public class BrowserBasedLoginDialog extends Dialog {
 
 	private String url;
 	private Browser browser;
-	private LoginInfo info;
+	private LoginResponse info;
 	
 	private static final RequestProcessor processor = new DefaultRequestProcessor();
 
@@ -79,7 +79,7 @@ public class BrowserBasedLoginDialog extends Dialog {
 			public void completed(ProgressEvent event) {
 				progressBar.setSelection(0);
 				System.out.println("URL=" + browser.getUrl());
-				info = processor.getRequestInfo(browser.getUrl(), browser.getText());
+				info = processor.getRequestInfo(browser, browser.getUrl(), browser.getText());
 				if (null != info) {
 					close();
 				}
@@ -98,7 +98,7 @@ public class BrowserBasedLoginDialog extends Dialog {
 	/**
 	 * @return the info
 	 */
-	public LoginInfo getInfo() {
+	public LoginResponse getInfo() {
 		return info;
 	}
 

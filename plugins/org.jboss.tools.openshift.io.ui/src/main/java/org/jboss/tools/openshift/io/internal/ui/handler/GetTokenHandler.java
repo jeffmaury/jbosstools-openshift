@@ -15,7 +15,7 @@ public class GetTokenHandler extends AbstractHandler {
 		String token = provider.getToken(null);
 		MessageBox box = new MessageBox(HandlerUtil.getActiveShell(event));
 		box.setText("OpenShift.io");
-		box.setMessage("Token retrieved is:" + token.substring(0, 16));
+		box.setMessage(token!=null?"Token retrieved is:" + token.substring(0, 16):"no token returned");
 		box.open();
 		return null;
 	}

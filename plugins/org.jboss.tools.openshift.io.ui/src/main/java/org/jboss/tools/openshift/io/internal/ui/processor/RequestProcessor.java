@@ -1,7 +1,8 @@
 package org.jboss.tools.openshift.io.internal.ui.processor;
 
-import org.jboss.tools.openshift.io.core.LoginInfo;
+import org.eclipse.swt.browser.Browser;
+import org.jboss.tools.openshift.io.core.LoginResponse;
 
 public interface RequestProcessor {
-	LoginInfo getRequestInfo(String url, String content);
+	LoginResponse getRequestInfo(Browser browser, String url, String content);
 }

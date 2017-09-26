@@ -10,20 +10,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Jeff MAURY
  *
  */
-public class LoginInfo {
+public class LoginResponse {
 
 	@JsonProperty("access_token")
 	private String accessToken;
 	
-	@JsonProperty("expires_in")
-	private long accessExpiresIn;
-	
 	@JsonProperty("refresh_token")
 	private String refreshToken;
 	
-	@JsonProperty("refresh_expires_in")
-	private long refreshExpiresIn;
-
 	/**
 	 * @return the accessToken
 	 */
@@ -36,20 +30,6 @@ public class LoginInfo {
 	 */
 	public void setAccessToken(String accessToken) {
 		this.accessToken = accessToken;
-	}
-
-	/**
-	 * @return the accessExpiresIn
-	 */
-	public long getAccessExpiresIn() {
-		return accessExpiresIn;
-	}
-
-	/**
-	 * @param accessExpiresIn the accessExpiresIn to set
-	 */
-	public void setAccessExpiresIn(long accessExpiresIn) {
-		this.accessExpiresIn = accessExpiresIn;
 	}
 
 	/**
@@ -66,20 +46,6 @@ public class LoginInfo {
 		this.refreshToken = refreshToken;
 	}
 
-	/**
-	 * @return the refreshExpiresIn
-	 */
-	public long getRefreshExpiresIn() {
-		return refreshExpiresIn;
-	}
-
-	/**
-	 * @param refreshExpiresIn the refreshExpiresIn to set
-	 */
-	public void setRefreshExpiresIn(long refreshExpiresIn) {
-		this.refreshExpiresIn = refreshExpiresIn;
-	}
-	
 	@JsonAnySetter
 	public void setOther(String name, Object value) {
 	}
