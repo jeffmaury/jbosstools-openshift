@@ -1,9 +1,18 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Red Hat, Inc.
+ * Distributed under license by Red Hat, Inc. All rights reserved.
+ * This program is made available under the terms of the
+ * Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Red Hat, Inc. - initial API and implementation
+ ******************************************************************************/
 package org.jboss.tools.openshift.io.internal.ui.dialog;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.window.IShellProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.browser.ProgressEvent;
@@ -20,20 +29,16 @@ import org.jboss.tools.openshift.io.internal.ui.processor.RequestProcessor;
 
 public class BrowserBasedLoginDialog extends Dialog {
 
-	private String url;
+	private String startURL;
 	private Browser browser;
 	private LoginResponse info;
 	
-	private static final RequestProcessor processor = new DefaultRequestProcessor();
+	private final RequestProcessor processor;
 
-	public BrowserBasedLoginDialog(Shell parentShell, String url) {
+	public BrowserBasedLoginDialog(Shell parentShell, String startURL, String landingURL) {
 		super(parentShell);
-		this.url = url;
-	}
-
-	public BrowserBasedLoginDialog(IShellProvider parentShell, String url) {
-		super(parentShell);
-		this.url = url;
+		this.startURL = startURL;
+		this.processor = new DefaultRequestProcessor(landingURL);
 	}
 
 	@Override
@@ -49,7 +54,7 @@ public class BrowserBasedLoginDialog extends Dialog {
 	@Override
 	protected Point getInitialSize() {
 		Shell parent = getParentShell();
-		return new Point(parent.getSize().x /2, parent.getSize().y /2);
+		return new Point(parent.getSize().x * 3 / 4, parent.getSize().y * 3 / 4);
 	}
 
 	@Override
@@ -86,12 +91,12 @@ public class BrowserBasedLoginDialog extends Dialog {
 			}
 		};
 		browser.addProgressListener(progressListener);
-		setURL(url);
+		setURL(startURL);
 		return container;
 	}
 
 	public void setURL(String url) {
-		this.url = url;
+		this.startURL = url;
 		browser.setUrl(url);
 	}
 

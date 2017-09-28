@@ -7,7 +7,8 @@ Bundle-Vendor: %Bundle-Vendor
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/jjwt-0.8.0.jar
 Require-Bundle: org.jboss.tools.openshift.core,
  org.junit;bundle-version="4.12.0",
  org.jboss.tools.openshift.io.core

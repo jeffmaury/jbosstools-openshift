@@ -3,7 +3,7 @@
 <schema targetNamespace="org.jboss.tools.openshift.io.core" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.jboss.tools.openshift.io.core" id="org.jboss.tools.openshift.io.core.tokenProvider" name="TokenProvider"/>
+         <meta.schema plugin="org.jboss.tools.openshift.io.core" id="org.jboss.tools.openshift.io.core.tokenProvider" name="tokenProvider"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -55,7 +55,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.jboss.tools.openshift.osio.core.TokenProvider"/>
+                  <meta.attribute kind="java" basedOn=":org.jboss.tools.openshift.io.core.TokenProvider"/>
                </appinfo>
             </annotation>
          </attribute>

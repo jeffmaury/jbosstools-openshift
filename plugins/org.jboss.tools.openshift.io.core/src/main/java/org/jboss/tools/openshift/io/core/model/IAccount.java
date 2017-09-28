@@ -1,22 +1,27 @@
-package org.jboss.tools.openshift.io.core;
+/*******************************************************************************
+ * Copyright (c) 2017 Red Hat, Inc.
+ * Distributed under license by Red Hat, Inc. All rights reserved.
+ * This program is made available under the terms of the
+ * Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Red Hat, Inc. - initial API and implementation
+ ******************************************************************************/
+package org.jboss.tools.openshift.io.core.model;
 
 /**
- * Represents an OSIO identity stored in database.
+ * Represents an OSIO account stored in database.
  */
-public interface IIdentity {
+public interface IAccount {
 	/**
-	 * The unique identifier (email) for the identity.
+	 * The unique identifier (email) for the account.
 	 * 
-	 * @return the identity id
+	 * @return the account id
 	 */
   String getId();
   
-  /**
-   * The base URL used to perform actions.
-   * 
-   * @return the endpoint URL
-   */
-  String getEndpointURL();
+  ICluster getCluster();
   
   /**
    * The access token used to access OSIO services.
@@ -64,7 +69,7 @@ public interface IIdentity {
   void setLastRefreshedTime(long lastRefreshTime);
   
   /**
-   * Save the identity in secure storage
+   * Save the account in secure storage
    */
   void save();
 }

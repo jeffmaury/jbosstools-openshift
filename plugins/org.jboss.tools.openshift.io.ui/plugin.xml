@@ -20,12 +20,31 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="menu:org.eclipse.ui.main.menu?after=window">
-         <command
-               commandId="org.jboss.tools.openshift.osio.ui.command.gettoken"
-               label="%openshiftio.command.gettoken"
-               style="push">
-         </command>
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=org.eclipse.ui.workbench.help">
+         <toolbar
+               id="org.jboss.tools.openshift.io.ui.toolbar1">
+            <command
+                  commandId="org.jboss.tools.openshift.osio.ui.command.gettoken"
+                  icon="icons/osio-16x16.png"
+                  label="%openshiftio.command.gettoken"
+                  style="push">
+            </command>
+         </toolbar>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.jboss.tools.common.model.ui.MainPreferencePage"
+            class="org.jboss.tools.openshift.io.internal.ui.preferences.MainPreferencePage"
+            id="org.jboss.tools.openshift.io.ui.preferences.MainPreferencePage"
+            name="OpenShift.io">
+      </page>
+   </extension>
+   <extension
+         point="org.jboss.tools.openshift.io.core.loginProvider">
+      <loginProvider
+            class="org.jboss.tools.openshift.io.internal.ui.DefaultLoginProvider">
+      </loginProvider>
    </extension>
 </plugin>

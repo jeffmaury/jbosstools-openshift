@@ -11,8 +11,7 @@
 	<packaging>eclipse-plugin</packaging>
 	
 	<properties>
-	   <io-jsonwebtoken-jjwt.version>0.6.0</io-jsonwebtoken-jjwt.version>
-	   <jsoup.version>1.10.3</jsoup.version>
+	   <io-jsonwebtoken-jjwt.version>0.8.0</io-jsonwebtoken-jjwt.version>
 	</properties>
 	
     <build>
@@ -46,17 +45,6 @@
                             <groupId>io.jsonwebtoken</groupId>
                             <artifactId>jjwt</artifactId>
                             <version>${io-jsonwebtoken-jjwt.version}</version>
-                            <classifier>sources</classifier>
-                        </artifactItem>
-                        <artifactItem>
-                            <groupId>org.jsoup</groupId>
-                            <artifactId>jsoup</artifactId>
-                            <version>${jsoup.version}</version>
-                        </artifactItem>
-                        <artifactItem>
-                            <groupId>org.jsoup</groupId>
-                            <artifactId>jsoup</artifactId>
-                            <version>${jsoup.version}</version>
                             <classifier>sources</classifier>
                         </artifactItem>
                     </artifactItems>
